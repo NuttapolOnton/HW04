@@ -1,0 +1,13 @@
+<%= form_with url: "/submit", method: :post, data:{turbo: false}    do |form| %>
+  <div style = "display:flex; flex-direction: row;">
+     <div><%= form.label :x, "Subject" %></div>
+     <div style = "margin-left: 7rem;"><%= form.label :y, "Grade" %></div>
+  </div>
+  <%for i in 1..@n do%>
+    <div>
+        <input <%= "id=sub" + i.to_s + " name=sub" + i.to_s + " type=text"%> />
+        <input <%= "id=score" + i.to_s + " name=score" + i.to_s + " type=text"%> />
+    </div>
+  <% end %>
+  <%= form.submit "Submit" %>
+<% end %>
